@@ -1,0 +1,22 @@
+<div class="container mx-auto">
+  <h1 class="text-3xl font-bold mb-4">Результаты поиска</h1>
+  <% if @result.present? %>
+    <% @result["items"].each do |item| %>
+      <% if item["ЮЛ"] %>
+        <% yul = item["ЮЛ"] %>
+        <div class="bg-white shadow-md rounded p-4 mb-4">
+          <h2 class="text-xl font-bold">Информация о Компании</h2>
+          <p class="text-gray-600"><strong>ИНН:</strong> <%= yul["ИНН"] %></p>
+          <p class="text-gray-600"><strong>Название:</strong> <%= yul["НаимСокрЮЛ"] %></p>
+          <p class="text-gray-600"><strong>Полное название:</strong> <%= yul["НаимПолнЮЛ"] %></p>
+          <p class="text-gray-600"><strong>Адрес:</strong> <%= yul["АдресПолн"] %></p>
+        </div>
+      <% end %>
+    <% end %>
+  <% else %>
+    <p>Нет результатов</p>
+  <% end %>
+
+  <%= link_to "Вернуться к поиску", root_path, class: "mt-4 inline-block bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+</div>
+

@@ -1,0 +1,6 @@
+<%= form_with url: search_path, method: :get, data: { turbo_frame: 'search_results' } do |form| %>
+  <div class="flex">
+    <%= form.text_field :inn, placeholder: "Введите ИНН организации", class: "border border-gray-300 rounded-l px-3 py-2 w-full" %>
+    <%= form.submit "Найти", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-r" %>
+  </div>
+<% end %>
